@@ -10,16 +10,20 @@
   },
   "dependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.3",
+    "apexcharts": "^3.25.0",
     "autoprefixer": "^9.8.6",
     "core-js": "^3.9.1",
     "postcss": "^7.0.35",
+    "simplebar-vue": "^1.6.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3",
-    "vue": "^2.6.12"
+    "vue": "^2.6.12",
+    "vue-apexcharts": "^1.6.0",
+    "vue-router": "^3.5.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",
     "@vue/cli-plugin-eslint": "^3.11.0",
-    "@vue/cli-service": "^3.11.0",
+    "@vue/cli-service": "^4.5.11",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
@@ -36,7 +40,9 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "no-console": "off"
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }

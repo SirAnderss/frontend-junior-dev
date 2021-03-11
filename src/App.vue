@@ -1,21 +1,13 @@
 <template>
-  <div id="app" class="remove-this">
+  <div>
+    <router-view />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
-  components: {},
-  async mounted() {
-    // Users
-    const userResponse = await fetch('/api/users');
-    const users = await userResponse.json();
-    // Reports
-    const reportResponse = await fetch('/api/reports');
-    const reports = await reportResponse.json();
-  }
-}
+  name: "app",
+};
 </script>
 
 <style lang="postcss">
@@ -23,15 +15,19 @@ export default {
 @tailwind components;
 @tailwind utilities;
 
-html, body, #app {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  overflow: auto;
+.main {
+  height: calc(100vh - 15rem);
 }
 
-.remove-this {
-  background-image: url('./assets/background.png');
-  @apply bg-contain bg-no-repeat bg-center;
+/* Table with rounded corners and tailwind shadows bug */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
 }
+
+table tr th,
+table tr td {
+  border-bottom: 1px solid #e5e7eb;
+}
+/* Table with rounded corners and tailwind shadows bug */
 </style>

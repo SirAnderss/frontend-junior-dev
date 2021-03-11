@@ -13,7 +13,7 @@ export function makeServer({ environment = "development" } = {}) {
         factories: {
             user: Factory.extend({
                 profile_img() {
-                    return  faker.image.avatar();
+                    return  faker.image.people(128, 128, true);
                 },
                 first_name() {
                     return faker.name.firstName();
