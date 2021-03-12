@@ -1,7 +1,7 @@
 <template>
   <div class="h-screen pt-6 px-6 bg-gray-200 dark:bg-gray-900">
     <Navbar />
-    <div class="h-16 px-10 flex items-center text-gray-600 dark:text-gray-00 text-xl">
+    <div class="h-16 px-10 flex items-center text-gray-500 dark:text-gray-00 text-xl">
       <router-link :to="this.$route.path" class="mr-2">{{ this.$route.name }}</router-link> /
       <span class="ml-2 underline">&nbsp;Reports & Insights</span>
     </div>
@@ -19,11 +19,6 @@ import Navbar from "../components/Navbar";
 export default {
   name: "home",
   components: { Employees, Reports, Navbar },
-  data() {
-    return {
-      slug: "",
-    };
-  },
 };
 </script>
 

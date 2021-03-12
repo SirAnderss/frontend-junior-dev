@@ -3,11 +3,7 @@
     class="employees w-full rounded-xl flex flex-col items-center lg:items-start overflow-hidden shadow-2xl hover:shadow-xl p-8 ml-4 bg-white dark:bg-gray-800"
   >
     <div>
-      <h2
-        class="text-lg lg:text-3xl tracking-wide text-gray-600 dark:text-gray-200"
-      >
-        Employees
-      </h2>
+      <H2 content="Employees" />
     </div>
     <div v-if="users.length > 0" class="w-full">
       <div class="w-full pt-8">
@@ -135,6 +131,7 @@
 </template>
 
 <script>
+import H2 from "./H2";
 import simplebar from "simplebar-vue";
 import "simplebar/dist/simplebar.min.css";
 import { dateFormat } from "../resources/dateFormat";
@@ -143,20 +140,25 @@ export default {
   name: "employees",
   components: {
     simplebar,
+    H2,
   },
   data() {
     return {
       users: [],
       lastCol: false,
       extendKey: { id: null, active: false },
-      theme: localStorage.getItem("theme") ? localStorage.theme : "",
     };
   },
   methods: {
     formatDate(sessions) {
-      return dateFormat(sessions);
+      /* Format API Dates to objects Date */
+      const sessionsDate = sessions.map((item) => new Date(item));
+
+      /* Organize and format Date objects to strings */
+      return dateFormat(sessionsDate);
     },
     multipleRows(sessions) {
+      /* Enable multiples rows if the user has more than one session */
       if (sessions.length > 1) {
         this.lastCol = true;
         return true;
@@ -165,10 +167,13 @@ export default {
       }
     },
     extendRows(userId) {
+      /* Extend rows if there is no user activated or if the user is different   */
       if (this.extendKey.id !== userId) {
         this.extendKey.id = userId;
         this.extendKey.active = true;
-      } else if (this.extendKey.id === userId && !this.extendKey.active) {
+      }
+      /* Extends or hide row if the rows is extended or hidden */
+      else if (this.extendKey.id === userId && !this.extendKey.active) {
         this.extendKey.active = true;
       } else if (this.extendKey.id === userId && this.extendKey.active) {
         this.extendKey.active = false;

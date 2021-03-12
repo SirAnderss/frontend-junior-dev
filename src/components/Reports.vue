@@ -3,9 +3,7 @@
     class="reports rounded-xl flex flex-col items-center lg:items-start overflow-hidden shadow-2xl hover:shadow-xl py-8 bg-white dark:bg-gray-800 mr-4"
   >
     <div class="w-full px-8">
-      <h2 class="text-lg lg:text-3xl tracking-wide text-gray-600 dark:text-gray-200">
-        Why do you create a startup?
-      </h2>
+      <H2 content="Why do you create a startup?" />
       <p class="text-md lg:text-lg text-gray-400 text-center lg:text-left">
         Trends
       </p>
@@ -21,10 +19,11 @@
 
 <script>
 import VueApexCharts from "vue-apexcharts";
+import H2 from "./H2";
 
 export default {
   name: "reports",
-  components: { apexchart: VueApexCharts },
+  components: { apexchart: VueApexCharts, H2 },
   data() {
     return {
       reports: [],
@@ -64,6 +63,7 @@ export default {
     };
   },
   methods: {
+    /* Set labels for the graph */
     setLabels({ reports }) {
       reports.forEach((el) => {
         this.series.push(el.total);

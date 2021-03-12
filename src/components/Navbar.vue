@@ -11,26 +11,10 @@
       <ul
         class="menu w-6/12 h-full flex justify-around items-center text-white font-bold"
       >
-        <router-link
-          to="/"
-          class="w-full h-full py-6 text-center text-xl tracking-wider font-normal cursor-pointer outline-none transform transition duration-300 ease-in-out hover:bg-indigo-900 dark:hover:bg-gray-700 hover:font-medium"
-          ><li>Home</li></router-link
-        >
-        <router-link
-          to="/some"
-          class="w-full h-full py-6 text-center text-xl tracking-wider font-normal cursor-pointer outline-none transform transition duration-300 ease-in-out hover:bg-indigo-900 dark:hover:bg-gray-700 hover:font-medium"
-          ><li>Some</li></router-link
-        >
-        <router-link
-          to="/another"
-          class="w-full h-full py-6 text-center text-xl tracking-wider font-normal cursor-pointer outline-none transform transition duration-300 ease-in-out hover:bg-indigo-900 dark:hover:bg-gray-700 hover:font-medium"
-          ><li>Another</li></router-link
-        >
-        <router-link
-          to="/other"
-          class="w-full h-full py-6 text-center text-xl tracking-wider font-normal cursor-pointer outline-none transform transition duration-300 ease-in-out hover:bg-indigo-900 dark:hover:bg-gray-700 hover:font-medium"
-          ><li>Other</li></router-link
-        >
+        <LiNav link="/" content="Home" />
+        <LiNav link="/some" content="Some" />
+        <LiNav link="/another" content="Another" />
+        <LiNav link="/other" content="Other" />
       </ul>
     </div>
     <div class="profile float-right">
@@ -82,7 +66,7 @@
           class="w-12 rounded-full border-2 border-white dark:border-gray-600 cursor-pointer"
         />
         <div
-          class="absolute bg-white dark:bg-gray-800 w-64 right-2 top-12 mt-2 shadow-lg rounded-lg opacity-0 transition duration-400 ease-in-out"
+          class="absolute bg-white dark:bg-gray-700 w-64 right-2 top-12 mt-2 shadow-lg rounded-lg opacity-0 transition duration-400 ease-in-out"
           :class="{
             'block opacity-100': profileMenu,
             hidden: !profileMenu,
@@ -130,8 +114,10 @@
 </template>
 
 <script>
+import LiNav from "./LiNav";
 export default {
   name: "navbar",
+  components: { LiNav },
   data() {
     return {
       profileMenu: false,
@@ -160,10 +146,6 @@ export default {
 </script>
 
 <style>
-.navbar {
-  background-color: #503795;
-}
-
 .avatar-icon-body::before,
 .avatar-icon-body::after {
   content: "";

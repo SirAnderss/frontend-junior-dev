@@ -25,7 +25,7 @@ export function makeServer({ environment = "development" } = {}) {
                     return faker.internet.email();
                 },
                 sessions() {
-                    return [faker.date.past(), faker.date.past(), faker.date.past()]
+                    return [faker.date.past(), faker.date.past(), faker.date.past(), faker.date.past()]
                 },
                 status() {
                     return faker.random.boolean();
